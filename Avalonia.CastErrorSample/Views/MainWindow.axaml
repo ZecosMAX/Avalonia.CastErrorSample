@@ -1,0 +1,32 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:v="using:Avalonia.CastErrorSample.Views"
+        xmlns:vm="using:Avalonia.CastErrorSample.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Avalonia.CastErrorSample.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Avalonia.CastErrorSample">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+	<Grid ColumnDefinitions="1*, 400, 1*" ShowGridLines="True" ClipToBounds="True">
+		<ScrollViewer Grid.Column="1">
+			<ItemsControl ItemsSource="{Binding Children}">
+				<ItemsControl.ItemTemplate>
+					<DataTemplate DataType="vm:ChildViewModel">
+						<Border Margin="0,5" BoxShadow="0 5 5 0 #181818">
+							<v:ChildView DataContext="{Binding}"/>
+						</Border>
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</ItemsControl>
+		</ScrollViewer>
+	</Grid>
+</Window>

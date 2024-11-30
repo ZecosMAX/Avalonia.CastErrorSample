@@ -1,0 +1,19 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Avalonia.CastErrorSample.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Avalonia.CastErrorSample.Views.ChildView"
+			 x:DataType="vm:ChildViewModel">
+	<Design.DataContext>
+		<vm:ChildViewModel/>
+	</Design.DataContext>
+	
+	<Grid RowDefinitions="1*, 1*, 1*, 1*" ShowGridLines="True" ClipToBounds="True">
+		<TextBlock Grid.Row="0" Text="{Binding StringProperty1}" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+		<TextBlock Grid.Row="1" Text="{Binding StringProperty2}" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+		<TextBlock Grid.Row="2" Text="{Binding NumberProperty1}" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+		<TextBlock Grid.Row="3" Text="{Binding NumberProperty2}" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+	</Grid>
+</UserControl>
